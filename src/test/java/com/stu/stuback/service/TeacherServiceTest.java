@@ -15,7 +15,7 @@ class TeacherServiceTest {
 
     @Test
     void findData() {
-        DataVO dataVO = service.findData();
+        DataVO dataVO = service.findData(1);
         int i = 0;
     }
 }

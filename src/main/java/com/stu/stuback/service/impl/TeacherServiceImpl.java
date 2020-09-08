@@ -19,7 +19,7 @@ public class TeacherServiceImpl implements TeacherService {
     private TeacherMapper teacherMapper;
 
     @Override
-    public DataVO<TeacherVO> findData() {
+    public DataVO<TeacherVO> findData(Integer page) {
         DataVO dataVO = new DataVO();
         dataVO.setCode(0);
         dataVO.setMsg("");
@@ -32,6 +32,7 @@ public class TeacherServiceImpl implements TeacherService {
             teacherVOList.add(teacherVO);
         }
         dataVO.setData(teacherVOList);
+        System.out.println("参数" + page);
         return dataVO;
     }
 }
