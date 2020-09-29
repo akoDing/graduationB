@@ -10,7 +10,7 @@ public class TeacherVO {
     @JsonProperty("id")
     private String fId;
     @JsonProperty("department")
-    private Integer fDepartmentId;
+    private String fDepartmentId;
     @JsonProperty("name")
     private String fName;
     @JsonProperty("gender")

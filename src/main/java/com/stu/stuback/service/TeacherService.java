@@ -5,5 +5,8 @@ import com.stu.stuback.vo.DataVO;
 import com.stu.stuback.vo.TeacherVO;
 
 public interface TeacherService {
-    public DataVO<TeacherVO> findData(Integer page);
+    public DataVO<TeacherVO> findData();
+
+    public DataVO saveData(TeacherVO teacherVO);
+
 }

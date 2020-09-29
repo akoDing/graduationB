@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 public class Teacher {
     private String fId;
-    private Integer fDepartmentId;
+    private String fDepartmentId;
     private String fName;
     private Integer fGender;
     private Date fBirthday;

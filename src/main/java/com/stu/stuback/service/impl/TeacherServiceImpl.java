@@ -3,6 +3,7 @@ package com.stu.stuback.service.impl;
 import com.stu.stuback.entity.Teacher;
 import com.stu.stuback.mapper.TeacherMapper;
 import com.stu.stuback.service.TeacherService;
+import com.stu.stuback.utils.ResultVOUtil;
 import com.stu.stuback.vo.DataVO;
 import com.stu.stuback.vo.TeacherVO;
 import org.springframework.beans.BeanUtils;
@@ -19,11 +20,11 @@ public class TeacherServiceImpl implements TeacherService {
     private TeacherMapper teacherMapper;
 
     @Override
-    public DataVO<TeacherVO> findData(Integer page) {
-        DataVO dataVO = new DataVO();
-        dataVO.setCode(0);
-        dataVO.setMsg("");
-        dataVO.setCount(teacherMapper.selectCount(null));
+    public DataVO<TeacherVO> findData() {
+        // DataVO dataVO = new DataVO();
+        // dataVO.setCode(0);
+        // dataVO.setMsg("");
+        // dataVO.setCount(teacherMapper.selectCount(null));
         List<Teacher> teacherList = teacherMapper.selectList(null);
         List<TeacherVO> teacherVOList = new ArrayList<>();
         for (Teacher teacher: teacherList) {
@@ -31,8 +32,23 @@ public class TeacherServiceImpl implements TeacherService {
             BeanUtils.copyProperties(teacher, teacherVO);
             teacherVOList.add(teacherVO);
         }
-        dataVO.setData(teacherVOList);
-        System.out.println("参数" + page);
-        return dataVO;
+        // dataVO.setData(teacherVOList);
+        return ResultVOUtil.success(teacherVOList, teacherMapper.selectCount(null));
+        // return dataVO;
     }
+
+    @Override
+    public DataVO saveData(TeacherVO teacherVO) {
+        DataVO dataVO = new DataVO();
+        Teacher teacher = new Teacher();
+        BeanUtils.copyProperties(teacherVO, teacher);
+        teacherMapper.insert(teacher);
+        // List<TeacherVO> teacherVOList = new ArrayList<>();
+        // BeanUtils.copyProperties(teacher, teacherVO);
+        // teacherVOList.add(teacherVO);
+        // dataVO.setData(teacherVOList);
+
+        return ResultVOUtil.success();
+    }
+
 }
