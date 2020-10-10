@@ -22,5 +22,10 @@ public class TeacherController {
         return teacherService.saveData(teacherVO);
     }
 
+    @GetMapping("/teacher/delete")
+    public DataVO delete(String teacherId){
+        return  teacherService.deleteData(teacherId);
+    }
+
 
 }

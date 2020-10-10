@@ -1,5 +1,6 @@
 package com.stu.stuback.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.stu.stuback.entity.Teacher;
 import com.stu.stuback.mapper.TeacherMapper;
 import com.stu.stuback.service.TeacherService;
@@ -19,6 +20,10 @@ public class TeacherServiceImpl implements TeacherService {
     @Autowired
     private TeacherMapper teacherMapper;
 
+    /**
+     *
+     * 查询
+     */
     @Override
     public DataVO<TeacherVO> findData() {
         // DataVO dataVO = new DataVO();
@@ -37,6 +42,10 @@ public class TeacherServiceImpl implements TeacherService {
         // return dataVO;
     }
 
+    /**
+     *
+     * 新建
+     */
     @Override
     public DataVO saveData(TeacherVO teacherVO) {
         // DataVO dataVO = new DataVO();
@@ -49,6 +58,19 @@ public class TeacherServiceImpl implements TeacherService {
         // dataVO.setData(teacherVOList);
        System.out.println(i);
 
+        return ResultVOUtil.success();
+    }
+
+    /**
+     *
+     * 删除
+     */
+   @Override
+    public DataVO deleteData(String teacherId) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("f_id", teacherId);
+        int i = teacherMapper.delete(wrapper);
+        System.out.println(i);
         return ResultVOUtil.success();
     }
 

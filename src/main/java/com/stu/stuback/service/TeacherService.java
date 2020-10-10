@@ -9,4 +9,6 @@ public interface TeacherService {
 
     public DataVO saveData(TeacherVO teacherVO);
 
+    public DataVO deleteData(String teacherId);
+
 }
