@@ -39,14 +39,15 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public DataVO saveData(TeacherVO teacherVO) {
-        DataVO dataVO = new DataVO();
+        // DataVO dataVO = new DataVO();
         Teacher teacher = new Teacher();
         BeanUtils.copyProperties(teacherVO, teacher);
-        teacherMapper.insert(teacher);
+        int i = teacherMapper.insert(teacher);
         // List<TeacherVO> teacherVOList = new ArrayList<>();
         // BeanUtils.copyProperties(teacher, teacherVO);
         // teacherVOList.add(teacherVO);
         // dataVO.setData(teacherVOList);
+       System.out.println(i);
 
         return ResultVOUtil.success();
     }
