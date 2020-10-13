@@ -27,5 +27,9 @@ public class TeacherController {
         return  teacherService.deleteData(teacherId);
     }
 
+    @PostMapping("/teacher/update")
+    public DataVO update(@RequestBody TeacherVO teacherVO){
+        return teacherService.updateData(teacherVO);
+    }
 
 }

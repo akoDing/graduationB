@@ -11,4 +11,6 @@ public interface TeacherService {
 
     public DataVO deleteData(String teacherId);
 
+    public DataVO updateData(TeacherVO teacherVO);
+
 }

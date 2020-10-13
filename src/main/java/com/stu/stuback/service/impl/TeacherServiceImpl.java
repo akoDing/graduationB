@@ -56,7 +56,7 @@ public class TeacherServiceImpl implements TeacherService {
         // BeanUtils.copyProperties(teacher, teacherVO);
         // teacherVOList.add(teacherVO);
         // dataVO.setData(teacherVOList);
-       System.out.println(i);
+        System.out.println(i);
 
         return ResultVOUtil.success();
     }
@@ -70,6 +70,21 @@ public class TeacherServiceImpl implements TeacherService {
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq("f_id", teacherId);
         int i = teacherMapper.delete(wrapper);
+        System.out.println(i);
+        return ResultVOUtil.success();
+    }
+
+    /**
+     *
+     * 修改
+     */
+    @Override
+    public DataVO updateData(TeacherVO teacherVO) {
+        Teacher teacher = new Teacher();
+        BeanUtils.copyProperties(teacherVO, teacher);
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("f_id", teacher.getFId());
+        int i = teacherMapper.update(teacher, wrapper);
         System.out.println(i);
         return ResultVOUtil.success();
     }
