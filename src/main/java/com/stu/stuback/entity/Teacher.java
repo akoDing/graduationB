@@ -1,12 +1,15 @@
 package com.stu.stuback.entity;
 
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
 public class Teacher {
+    @TableId(value = "f_id") // 在自增主键的变量加上即可
     private String fId;
     private String fDepartmentId;
     private String fName;

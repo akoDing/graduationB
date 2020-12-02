@@ -5,6 +5,10 @@
 # username: root
 # password: 123456
 spring:
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 10MB
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root

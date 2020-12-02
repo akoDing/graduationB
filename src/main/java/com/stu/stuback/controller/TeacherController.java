@@ -6,7 +6,7 @@ import com.stu.stuback.vo.TeacherVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@RestController // @Controller + @RequestBody 直接返回JSON字符串
 public class TeacherController {
 
     @Autowired
